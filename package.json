@@ -1,0 +1,19 @@
+{
+  "name": "slut-projekt",
+  "version": "1.0.0",
+  "description": "Liams-Slut-Projekt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiamSvahn/Slut-projekt.git"
+  },
+  "author": "Liam-Svahn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiamSvahn/Slut-projekt/issues"
+  },
+  "homepage": "https://github.com/LiamSvahn/Slut-projekt#readme"
+}
