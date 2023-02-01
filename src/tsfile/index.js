@@ -18,6 +18,8 @@ const typesUrl = 'http://www.boredapi.com/api/activity?type=';
 const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
 const randomBtn = document.querySelector('#random-btn');
 const randSysla = document.querySelector('#syslla-Text');
+const getSelec = document.querySelector('#select-categories');
+const creatOption = document.createElement('option');
 function randSyssla() {
     return __awaiter(this, void 0, void 0, function* () {
         const respons = yield fetch(randUrl);
@@ -30,3 +32,12 @@ randomBtn.addEventListener('click', myfunction);
 function myfunction() {
     randSyssla();
 }
+function addOption() {
+    for (let i = 1; i < 5; i++) {
+        const creatOption = document.createElement('option');
+        creatOption.setAttribute('id', 'option-id');
+        creatOption.innerText = i.toString();
+        getSelec.append(creatOption);
+    }
+}
+addOption();

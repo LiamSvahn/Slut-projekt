@@ -18,6 +18,10 @@ const randomBtn = document.querySelector('#random-btn') as HTMLSelectElement;
 
 const randSysla = document.querySelector('#syslla-Text') as HTMLElement;
 
+const getSelec = document.querySelector('#select-categories') as HTMLSelectElement;
+const creatOption = document.createElement('option') as HTMLElement;
+
+
 
 async function randSyssla() {
 
@@ -27,13 +31,28 @@ async function randSyssla() {
     randSysla.textContent = data['activity'];
 
     console.log(data.activity)
-}
+}  
 
 randomBtn.addEventListener('click', myfunction)
 
 function myfunction(){
     randSyssla();
 }
+
+function addOption(){
+    for (let i = 1; i < 5; i++) {
+        const creatOption = document.createElement('option') as HTMLElement;
+
+        creatOption.setAttribute('id','option-id')
+        creatOption.innerText = i.toString()
+        getSelec.append(creatOption)
+    }
+}
+
+addOption();
+
+
+
 
 
 
