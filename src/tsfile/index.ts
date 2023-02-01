@@ -8,7 +8,7 @@ console.log("hello world", X)
 const randUrl = 'http://www.boredapi.com/api/activity/';
 
 // här är url'en för att du ska kunna söka på typer 
-const typesUrl = 'http://www.boredapi.com/api/activity?type=';
+const budgetUrl = 'http://www.boredapi.com/api/activity?minaccessibility=0&maxaccessibility=0.1';
 
 //antal delltagare i sysslan
 const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
@@ -16,10 +16,16 @@ const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
 
 const randomBtn = document.querySelector('#random-btn') as HTMLSelectElement;
 
+const deltagarebtn = document.querySelector('#deltagare') as HTMLSelectElement;
+
 const randSysla = document.querySelector('#syslla-Text') as HTMLElement;
 
 const getSelec = document.querySelector('#select-categories') as HTMLSelectElement;
+
 const creatOption = document.createElement('option') as HTMLElement;
+
+
+
 
 
 
@@ -48,8 +54,22 @@ function addOption(){
         getSelec.append(creatOption)
     }
 }
-
 addOption();
+
+async function participantsActivity() {
+    const newUrl:string = antalUrl + getSelec.options[getSelec.selectedIndex].value
+
+    const parFech = await fetch(newUrl)
+    const antaldata = await parFech.json()
+
+    console.log(antaldata['activity'])
+}
+deltagarebtn.addEventListener('click', deltagarefunc)
+function deltagarefunc(){
+    participantsActivity();
+}
+
+
 
 
 
