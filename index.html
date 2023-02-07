@@ -8,41 +8,32 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <div>
-            <p>vad ska jag göra idag?</p>
+    <header>
+        <button id="serch-button">
+            <input type="text" id="serch-input">
+            <h2>sök serch</h2>
+        </button>
 
-            <button type="randombutton" id="random-btn">Jag vet inte</button>
-        </div>
+        <button id="random-btn">
+            <h2>vad ska jag göra idag?</h2>
+        </button>
 
-        <input type="range" id="serch-slder" min="0,0" max="1.0" step="0.1"/>
-        <p>valeu: <output id="value"><output></p>
+        <button id="deltagare">
+            <select name="categories" id="select-categories">
+                <option value="empty"></option>
+            </select>
+            <h2>Sök</h2>
+        </button>
 
+        <aside>
+        </aside>
+    </header>
 
+    <main>
+        <section><h1 class="content-section" id="syslla-Text"></h1>
+        </section>
 
-
-        <select name="categories" id="select-categories">
-            <option value="empty"></option>
-        </select>
-        <button type="antalDeltagare" id="deltagare">sök</button>
-        
-
-
-    </nav>
-
-
-
-
-    <section class="content-section" id="syslla-Text">
-
-    </section>
-
-
-
-    <section class="?">
-
-    </section>
-
-    <script src="src\tsfile\index.js"></script>
+        <script src="src\tsfile\index.js"></script>
+    </main>
 </body>
 </html>

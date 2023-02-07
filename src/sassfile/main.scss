@@ -1,0 +1,60 @@
+@use '../sassfile/sassPath' as *;
+
+body{
+    margin: 0;
+
+    font-family: $fontBody;
+    h1{
+        font-size: $H1FontSize;
+    }
+    h2{
+        font-size: $H2FontSize;
+    }
+    h3{
+        font-size: $H3FontSize;
+    }
+    p{
+        font-size: $pFontSizebody;
+    }
+
+
+
+    background-color: $a;
+    height: 100%;
+    width: 100%;
+
+    header{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        background-color: $b;
+        height: 200px;
+        
+        
+        button{
+            padding: 0;
+            border: none;
+            font-family: inherit;
+            background-color: $d;
+            height: 100px;
+            width: 20%
+        }
+        button:nth-of-type(even){
+            margin: 50px;
+        }
+        button:nth-of-type(odd){
+            margin-top: 50px;
+        }
+    }
+    
+
+}
+main{
+    text-align: center;
+    vertical-align: middle;
+
+    font-family: $fontBody;
+    p{
+        font-size: $pFontSizeMain;
+    }
+}

@@ -13,7 +13,7 @@ console.log("hello world", X);
 //här hämtar vi in en hell random url
 const randUrl = 'http://www.boredapi.com/api/activity/';
 // här är url'en för att du ska kunna söka på typer 
-const budgetUrl = 'http://www.boredapi.com/api/activity?minaccessibility=0&maxaccessibility=0.1';
+const serchUrl = 'http://www.boredapi.com/api/activity?type=';
 //antal delltagare i sysslan
 const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
 const randomBtn = document.querySelector('#random-btn');
@@ -21,12 +21,19 @@ const deltagarebtn = document.querySelector('#deltagare');
 const randSysla = document.querySelector('#syslla-Text');
 const getSelec = document.querySelector('#select-categories');
 const creatOption = document.createElement('option');
+const getbuton = document.querySelector('#serch-button');
+const getSerch = document.querySelector('#serch-input');
 function randSyssla() {
     return __awaiter(this, void 0, void 0, function* () {
-        const respons = yield fetch(randUrl);
-        const data = yield respons.json();
-        randSysla.textContent = data['activity'];
-        console.log(data.activity);
+        try {
+            const respons = yield fetch(randUrl);
+            const data = yield respons.json();
+            randSysla.textContent = data['activity'];
+            console.log(data.activity);
+        }
+        catch (error) {
+            console.log(error);
+        }
     });
 }
 randomBtn.addEventListener('click', myfunction);
@@ -41,11 +48,14 @@ function addOption() {
         getSelec.append(creatOption);
     }
 }
+addOption();
 function participantsActivity() {
     return __awaiter(this, void 0, void 0, function* () {
         const newUrl = antalUrl + getSelec.options[getSelec.selectedIndex].value;
         const parFech = yield fetch(newUrl);
         const antaldata = yield parFech.json();
+        randSysla.textContent = antaldata['activity'];
+        randSysla.append(randSysla);
         console.log(antaldata['activity']);
     });
 }
@@ -53,4 +63,25 @@ deltagarebtn.addEventListener('click', deltagarefunc);
 function deltagarefunc() {
     participantsActivity();
 }
-addOption();
+function serchFunc() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const costomUrl = serchUrl + getSerch.value;
+            const newUrl = yield fetch(costomUrl);
+            const serchData = yield newUrl.json();
+            console.log(costomUrl);
+            console.log(getSerch.value);
+            randSysla.textContent = serchData['activity'];
+            randSysla.append(randSysla);
+            console.log(serchData['activity']);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+getbuton.addEventListener('click', SerchFuction);
+function SerchFuction() {
+    serchFunc();
+}
+;

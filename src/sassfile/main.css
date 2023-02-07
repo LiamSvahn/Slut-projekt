@@ -1,3 +1,51 @@
+body {
+  margin: 0;
+  font-family: "Consolas";
+  background-color: #F5F5F5;
+  height: 100%;
+  width: 100%;
+}
+body h1 {
+  font-size: font-size 96px;
+}
+body h2 {
+  font-size: font-size 48px;
+}
+body h3 {
+  font-size: font-size 32px;
+}
+body p {
+  font-size: font-size 12px;
+}
+body header {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: #E5F6DF;
+  height: 200px;
+}
+body header button {
+  padding: 0;
+  border: none;
+  font-family: inherit;
+  background-color: #90EE91;
+  height: 100px;
+  width: 20%;
+}
+body header button:nth-of-type(even) {
+  margin: 50px;
+}
+body header button:nth-of-type(odd) {
+  margin-top: 50px;
+}
 
+main {
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Consolas";
+}
+main p {
+  font-size: font-size 49px;
+}
 
 /*# sourceMappingURL=main.css.map */

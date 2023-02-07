@@ -8,7 +8,7 @@ console.log("hello world", X)
 const randUrl = 'http://www.boredapi.com/api/activity/';
 
 // här är url'en för att du ska kunna söka på typer 
-const budgetUrl = 'http://www.boredapi.com/api/activity?minaccessibility=0&maxaccessibility=0.1';
+const serchUrl = 'http://www.boredapi.com/api/activity?type=';
 
 //antal delltagare i sysslan
 const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
@@ -24,19 +24,20 @@ const getSelec = document.querySelector('#select-categories') as HTMLSelectEleme
 
 const creatOption = document.createElement('option') as HTMLElement;
 
+const getbuton = document.querySelector('#serch-button') as HTMLButtonElement;
 
-
-
+const getSerch = document.querySelector('#serch-input') as HTMLInputElement;
 
 
 async function randSyssla() {
-
-    const respons = await fetch(randUrl)
-    const data = await respons.json();
-
-    randSysla.textContent = data['activity'];
-
-    console.log(data.activity)
+    try {
+        const respons = await fetch(randUrl)
+        const data = await respons.json();
+        randSysla.textContent = data['activity'];
+        console.log(data.activity)
+    } catch (error) {
+        console.log(error)
+    }
 }  
 
 randomBtn.addEventListener('click', myfunction)
@@ -48,10 +49,10 @@ function myfunction(){
 function addOption(){
     for (let i = 1; i < 5; i++) {
         const creatOption = document.createElement('option') as HTMLElement;
-
         creatOption.setAttribute('id','option-id')
         creatOption.innerText = i.toString()
         getSelec.append(creatOption)
+        
     }
 }
 addOption();
@@ -62,17 +63,36 @@ async function participantsActivity() {
     const parFech = await fetch(newUrl)
     const antaldata = await parFech.json()
 
+    randSysla.textContent = antaldata['activity'];
+    randSysla.append(randSysla);
     console.log(antaldata['activity'])
 }
 deltagarebtn.addEventListener('click', deltagarefunc)
+
 function deltagarefunc(){
     participantsActivity();
 }
 
+async function serchFunc(){
+    try {
+        const costomUrl:string = serchUrl + getSerch.value
+        const newUrl = await fetch(costomUrl)
+        const serchData = await newUrl.json();
+        
+        console.log(costomUrl)
+        console.log(getSerch.value)
+        randSysla.textContent = serchData['activity'];
+        randSysla.append(randSysla)
+        console.log(serchData['activity']);   
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-
-
-
+getbuton.addEventListener('click', SerchFuction)
+function SerchFuction(){
+    serchFunc();
+};
 
 
 
