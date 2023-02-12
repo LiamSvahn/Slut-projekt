@@ -28,6 +28,8 @@ const getbuton = document.querySelector('#serch-button') as HTMLButtonElement;
 
 const getSerch = document.querySelector('#serch-input') as HTMLInputElement;
 
+const getAside = document.querySelector('aside') as HTMLElement;
+
 
 async function randSyssla() {
     try {
@@ -66,8 +68,8 @@ async function participantsActivity() {
     randSysla.textContent = antaldata['activity'];
     randSysla.append(randSysla);
     console.log(antaldata['activity'])
-}
-deltagarebtn.addEventListener('click', deltagarefunc)
+
+}deltagarebtn.addEventListener('click', deltagarefunc)
 
 function deltagarefunc(){
     participantsActivity();
@@ -78,21 +80,27 @@ async function serchFunc(){
         const costomUrl:string = serchUrl + getSerch.value
         const newUrl = await fetch(costomUrl)
         const serchData = await newUrl.json();
-        
-        console.log(costomUrl)
-        console.log(getSerch.value)
         randSysla.textContent = serchData['activity'];
         randSysla.append(randSysla)
         console.log(serchData['activity']);   
     } catch (error) {
         console.log(error)
     }
-}
+}getbuton.addEventListener('click', SerchFuction)
 
-getbuton.addEventListener('click', SerchFuction)
 function SerchFuction(){
     serchFunc();
 };
 
+function asideFunction(){
+    if(getAside.style.height === '50px'){
+        getAside.style.height = "100vh";
+        getAside.style.width = "40vw";
+    }
+    else{
+        getAside.style.height = "50px";
+        getAside.style.width = "50px";
+    }
 
-
+}
+getAside.addEventListener('click', asideFunction)

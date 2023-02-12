@@ -23,6 +23,7 @@ const getSelec = document.querySelector('#select-categories');
 const creatOption = document.createElement('option');
 const getbuton = document.querySelector('#serch-button');
 const getSerch = document.querySelector('#serch-input');
+const getAside = document.querySelector('aside');
 function randSyssla() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -69,8 +70,6 @@ function serchFunc() {
             const costomUrl = serchUrl + getSerch.value;
             const newUrl = yield fetch(costomUrl);
             const serchData = yield newUrl.json();
-            console.log(costomUrl);
-            console.log(getSerch.value);
             randSysla.textContent = serchData['activity'];
             randSysla.append(randSysla);
             console.log(serchData['activity']);
@@ -85,3 +84,14 @@ function SerchFuction() {
     serchFunc();
 }
 ;
+function asideFunction() {
+    if (getAside.style.height === '50px') {
+        getAside.style.height = "100vh";
+        getAside.style.width = "40vw";
+    }
+    else {
+        getAside.style.height = "50px";
+        getAside.style.width = "50px";
+    }
+}
+getAside.addEventListener('click', asideFunction);

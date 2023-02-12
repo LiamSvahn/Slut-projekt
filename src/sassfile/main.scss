@@ -18,12 +18,12 @@ body{
     }
 
 
-
+    position: relative;
     background-color: $a;
     height: 100%;
     width: 100%;
 
-    header{
+    header:nth-child(-n + 3){
         display: flex;
         align-content: center;
         justify-content: center;
@@ -45,6 +45,14 @@ body{
         button:nth-of-type(odd){
             margin-top: 50px;
         }
+    }
+    aside{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        background-color: black;
     }
     
 
