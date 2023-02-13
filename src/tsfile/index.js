@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -10,11 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 let X = 4;
 console.log("hello world", X);
-//här hämtar vi in en hell random url
 const randUrl = 'http://www.boredapi.com/api/activity/';
-// här är url'en för att du ska kunna söka på typer 
 const serchUrl = 'http://www.boredapi.com/api/activity?type=';
-//antal delltagare i sysslan
 const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
 const randomBtn = document.querySelector('#random-btn');
 const deltagarebtn = document.querySelector('#deltagare');
@@ -101,7 +98,7 @@ function asideFunction() {
     }
 }
 getAside.addEventListener('click', asideFunction);
-getMainButton.addEventListener('click', (ev) => {
+getMainButton.addEventListener('click', () => {
     arraysysslor.push(randSysla.innerText);
     console.log(arraysysslor);
     document.querySelectorAll('#p-array').forEach(p => p.remove());

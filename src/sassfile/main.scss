@@ -37,7 +37,23 @@ body{
             font-family: inherit;
             background-color: $d;
             height: 100px;
-            width: 20%
+            width: 20%;
+
+            #serch-input {
+                width: 98%;
+                text-align: start;
+                background: none;
+                font-family: inherit;
+                font-size: 24px;
+                border: none;
+                border-bottom: solid;
+            }
+
+            select#select-categories{
+                @extend #serch-input
+
+
+            }
         }
         button:nth-of-type(even){
             margin: 50px;

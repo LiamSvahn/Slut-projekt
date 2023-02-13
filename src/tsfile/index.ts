@@ -1,17 +1,17 @@
-'use strict'
+
 
 
 let X:number = 4;
 console.log("hello world", X)
 
 //här hämtar vi in en hell random url
-const randUrl = 'http://www.boredapi.com/api/activity/';
+const randUrl:string = 'http://www.boredapi.com/api/activity/';
 
 // här är url'en för att du ska kunna söka på typer 
-const serchUrl = 'http://www.boredapi.com/api/activity?type=';
+const serchUrl:string = 'http://www.boredapi.com/api/activity?type=';
 
 //antal delltagare i sysslan
-const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
+const antalUrl:string = 'http://www.boredapi.com/api/activity?participants=';
 
 
 const randomBtn = document.querySelector('#random-btn') as HTMLSelectElement;
@@ -44,7 +44,10 @@ const arraysysslor: string[] = [];
 async function randSyssla() {
     try {
         const respons = await fetch(randUrl)
-        const data = await respons.json();
+        const data:{
+            activity: string;
+        } = await respons.json();
+
         randSysla.textContent = data['activity'];
         console.log(data.activity)
     } catch (error) {
@@ -73,7 +76,9 @@ async function participantsActivity() {
     const newUrl:string = antalUrl + getSelec.options[getSelec.selectedIndex].value
 
     const parFech = await fetch(newUrl)
-    const antaldata = await parFech.json()
+    const antaldata:{
+        activity:string;
+    } = await parFech.json()
 
     randSysla.textContent = antaldata['activity'];
     randSysla.append(randSysla);
@@ -89,7 +94,9 @@ async function serchFunc(){
     try {
         const costomUrl:string = serchUrl + getSerch.value
         const newUrl = await fetch(costomUrl)
-        const serchData = await newUrl.json();
+        const serchData:{
+            activity:string;
+        } = await newUrl.json();
         randSysla.textContent = serchData['activity'];
         randSysla.append(randSysla)
         console.log(serchData['activity']);   
@@ -121,7 +128,7 @@ function asideFunction(){
 
 
 
-getMainButton.addEventListener('click', (ev: MouseEvent) => {
+getMainButton.addEventListener('click', () => {
     arraysysslor.push(randSysla.innerText)
     console.log(arraysysslor)
     document.querySelectorAll('#p-array').forEach(p => p.remove())

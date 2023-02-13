@@ -33,6 +33,15 @@ body header:nth-child(-n+3) button {
   height: 100px;
   width: 20%;
 }
+body header:nth-child(-n+3) button #serch-input, body header:nth-child(-n+3) button select#select-categories {
+  width: 98%;
+  text-align: start;
+  background: none;
+  font-family: inherit;
+  font-size: 24px;
+  border: none;
+  border-bottom: solid;
+}
 body header:nth-child(-n+3) button:nth-of-type(even) {
   margin: 50px;
 }
