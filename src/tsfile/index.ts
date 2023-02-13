@@ -20,6 +20,10 @@ const deltagarebtn = document.querySelector('#deltagare') as HTMLSelectElement;
 
 const randSysla = document.querySelector('#syslla-Text') as HTMLElement;
 
+const getMainSection = document.querySelector('#show-text') as HTMLSelectElement;
+
+const getMainButton = document.querySelector('#main-add') as HTMLButtonElement;
+
 const getSelec = document.querySelector('#select-categories') as HTMLSelectElement;
 
 const creatOption = document.createElement('option') as HTMLElement;
@@ -29,6 +33,12 @@ const getbuton = document.querySelector('#serch-button') as HTMLButtonElement;
 const getSerch = document.querySelector('#serch-input') as HTMLInputElement;
 
 const getAside = document.querySelector('aside') as HTMLElement;
+
+const getSection = document.querySelector('#hide-Section') as HTMLSelectElement;
+
+
+const arraysysslor: string[] = [];
+
 
 
 async function randSyssla() {
@@ -96,11 +106,32 @@ function asideFunction(){
     if(getAside.style.height === '50px'){
         getAside.style.height = "100vh";
         getAside.style.width = "40vw";
+        getSection.style.display = "block"
+
     }
     else{
         getAside.style.height = "50px";
         getAside.style.width = "50px";
+        getSection.style.display = "none"
     }
 
-}
-getAside.addEventListener('click', asideFunction)
+}getAside.addEventListener('click', asideFunction)
+
+
+
+
+
+getMainButton.addEventListener('click', (ev: MouseEvent) => {
+    arraysysslor.push(randSysla.innerText)
+    console.log(arraysysslor)
+    document.querySelectorAll('#p-array').forEach(p => p.remove())
+    for (let i = 0; i < arraysysslor.length; i++) {
+        const addP = document.createElement('p') as HTMLElement;
+        addP.setAttribute('id', 'p-array')
+        addP.innerText = arraysysslor[i]
+        getSection.append(addP)
+        
+    }
+})
+
+

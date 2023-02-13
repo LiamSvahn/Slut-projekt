@@ -45,7 +45,10 @@ body aside {
   right: 0;
   width: 50px;
   height: 50px;
-  background-color: black;
+  background-color: gray;
+}
+body aside section {
+  display: none;
 }
 
 main {

@@ -19,11 +19,15 @@ const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
 const randomBtn = document.querySelector('#random-btn');
 const deltagarebtn = document.querySelector('#deltagare');
 const randSysla = document.querySelector('#syslla-Text');
+const getMainSection = document.querySelector('#show-text');
+const getMainButton = document.querySelector('#main-add');
 const getSelec = document.querySelector('#select-categories');
 const creatOption = document.createElement('option');
 const getbuton = document.querySelector('#serch-button');
 const getSerch = document.querySelector('#serch-input');
 const getAside = document.querySelector('aside');
+const getSection = document.querySelector('#hide-Section');
+const arraysysslor = [];
 function randSyssla() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -88,10 +92,23 @@ function asideFunction() {
     if (getAside.style.height === '50px') {
         getAside.style.height = "100vh";
         getAside.style.width = "40vw";
+        getSection.style.display = "block";
     }
     else {
         getAside.style.height = "50px";
         getAside.style.width = "50px";
+        getSection.style.display = "none";
     }
 }
 getAside.addEventListener('click', asideFunction);
+getMainButton.addEventListener('click', (ev) => {
+    arraysysslor.push(randSysla.innerText);
+    console.log(arraysysslor);
+    document.querySelectorAll('#p-array').forEach(p => p.remove());
+    for (let i = 0; i < arraysysslor.length; i++) {
+        const addP = document.createElement('p');
+        addP.setAttribute('id', 'p-array');
+        addP.innerText = arraysysslor[i];
+        getSection.append(addP);
+    }
+});
