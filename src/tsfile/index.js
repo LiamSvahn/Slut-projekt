@@ -8,8 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-let X = 4;
-console.log("hello world", X);
 const randUrl = 'http://www.boredapi.com/api/activity/';
 const serchUrl = 'http://www.boredapi.com/api/activity?type=';
 const antalUrl = 'http://www.boredapi.com/api/activity?participants=';
@@ -24,6 +22,8 @@ const getbuton = document.querySelector('#serch-button');
 const getSerch = document.querySelector('#serch-input');
 const getAside = document.querySelector('aside');
 const getSection = document.querySelector('#hide-Section');
+const getNav = document.querySelector('#header-section');
+const getIcon = document.querySelector('#nav-icon');
 const arraysysslor = [];
 function randSyssla() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -31,7 +31,6 @@ function randSyssla() {
             const respons = yield fetch(randUrl);
             const data = yield respons.json();
             randSysla.textContent = data['activity'];
-            console.log(data.activity);
         }
         catch (error) {
             console.log(error);
@@ -57,8 +56,6 @@ function participantsActivity() {
         const parFech = yield fetch(newUrl);
         const antaldata = yield parFech.json();
         randSysla.textContent = antaldata['activity'];
-        randSysla.append(randSysla);
-        console.log(antaldata['activity']);
     });
 }
 deltagarebtn.addEventListener('click', deltagarefunc);
@@ -72,8 +69,6 @@ function serchFunc() {
             const newUrl = yield fetch(costomUrl);
             const serchData = yield newUrl.json();
             randSysla.textContent = serchData['activity'];
-            randSysla.append(randSysla);
-            console.log(serchData['activity']);
         }
         catch (error) {
             console.log(error);
@@ -90,14 +85,16 @@ function asideFunction() {
         getAside.style.height = "100vh";
         getAside.style.width = "40vw";
         getSection.style.display = "block";
+        getIcon.innerHTML = "&#8594;";
     }
     else {
         getAside.style.height = "50px";
         getAside.style.width = "50px";
         getSection.style.display = "none";
+        getIcon.innerHTML = "&#10003;";
     }
 }
-getAside.addEventListener('click', asideFunction);
+getNav.addEventListener('click', asideFunction);
 getMainButton.addEventListener('click', () => {
     arraysysslor.push(randSysla.innerText);
     console.log(arraysysslor);

@@ -1,9 +1,3 @@
-
-
-
-let X:number = 4;
-console.log("hello world", X)
-
 //här hämtar vi in en hell random url
 const randUrl:string = 'http://www.boredapi.com/api/activity/';
 
@@ -36,6 +30,10 @@ const getAside = document.querySelector('aside') as HTMLElement;
 
 const getSection = document.querySelector('#hide-Section') as HTMLSelectElement;
 
+const getNav = document.querySelector('#header-section') as HTMLSelectElement;
+
+const getIcon = document.querySelector('#nav-icon') as HTMLSelectElement;
+
 
 const arraysysslor: string[] = [];
 
@@ -49,13 +47,10 @@ async function randSyssla() {
         } = await respons.json();
 
         randSysla.textContent = data['activity'];
-        console.log(data.activity)
     } catch (error) {
         console.log(error)
     }
-}  
-
-randomBtn.addEventListener('click', myfunction)
+}randomBtn.addEventListener('click', myfunction)
 
 function myfunction(){
     randSyssla();
@@ -81,9 +76,6 @@ async function participantsActivity() {
     } = await parFech.json()
 
     randSysla.textContent = antaldata['activity'];
-    randSysla.append(randSysla);
-    console.log(antaldata['activity'])
-
 }deltagarebtn.addEventListener('click', deltagarefunc)
 
 function deltagarefunc(){
@@ -97,9 +89,8 @@ async function serchFunc(){
         const serchData:{
             activity:string;
         } = await newUrl.json();
+
         randSysla.textContent = serchData['activity'];
-        randSysla.append(randSysla)
-        console.log(serchData['activity']);   
     } catch (error) {
         console.log(error)
     }
@@ -113,19 +104,17 @@ function asideFunction(){
     if(getAside.style.height === '50px'){
         getAside.style.height = "100vh";
         getAside.style.width = "40vw";
-        getSection.style.display = "block"
-
+        getSection.style.display = "block";
+        getIcon.innerHTML = "&#8594;";
     }
     else{
         getAside.style.height = "50px";
         getAside.style.width = "50px";
-        getSection.style.display = "none"
+        getSection.style.display = "none";
+        getIcon.innerHTML = "&#10003;";
     }
 
-}getAside.addEventListener('click', asideFunction)
-
-
-
+}getNav.addEventListener('click', asideFunction)
 
 
 getMainButton.addEventListener('click', () => {

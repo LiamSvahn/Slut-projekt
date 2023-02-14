@@ -1,11 +1,22 @@
 @use '../sassfile/sassPath' as *;
 
+@mixin blockButtons{
+    width: 98%;
+    text-align: start;
+    background: none;
+    font-family: inherit;
+    font-size: 24px;
+    border: none;
+    border-bottom: solid;
+}
+
 body{
     margin: 0;
 
     font-family: $fontBody;
     h1{
         font-size: $H1FontSize;
+        margin: 0;
     }
     h2{
         font-size: $H2FontSize;
@@ -16,8 +27,6 @@ body{
     p{
         font-size: $pFontSizebody;
     }
-
-
     position: relative;
     background-color: $a;
     height: 100%;
@@ -40,19 +49,11 @@ body{
             width: 20%;
 
             #serch-input {
-                width: 98%;
-                text-align: start;
-                background: none;
-                font-family: inherit;
-                font-size: 24px;
-                border: none;
-                border-bottom: solid;
+                @include blockButtons;
             }
 
             select#select-categories{
-                @extend #serch-input
-
-
+                @include blockButtons;
             }
         }
         button:nth-of-type(even){
@@ -68,21 +69,53 @@ body{
         right: 0;
         width: 50px;
         height: 50px;
-        background-color: gray;
+        background-color: $d;
 
+        nav#header-section{
+            z-index: 5;
+            float: right;
+            background-color: bisque;
+            height: 50px;
+            width: 50px;
+            p#nav-icon{
+                margin: 0;
+                text-align: center;
+                padding-top: 5px;
+            }
+        }
         section{
+            display: none;
+
+            #p-array{
+                border-bottom: solid;
+                margin: 5vW;
+            }
+        }
+        #add-Own-Syssla{
+            width: 200px;
+            height: 50px;
+            border-radius: 40px;
             display: none;
         }
     }
+    main{
+        text-align: center;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 70vh;
     
-
-}
-main{
-    text-align: center;
-    vertical-align: middle;
-
-    font-family: $fontBody;
-    p{
-        font-size: $pFontSizeMain;
+        p{
+            margin: 0;
+            padding-top: 5px;
+        }
+        #main-add{
+            border-radius: 40px;
+            height: 30px;
+            float: right;
+        }
+        section#show-text{
+            margin: 0 60px 0px 60px;
+        }
     }
 }

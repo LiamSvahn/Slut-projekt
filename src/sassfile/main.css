@@ -7,16 +7,17 @@ body {
   width: 100%;
 }
 body h1 {
-  font-size: 96px;
+  font-size: 10vw;
+  margin: 0;
 }
 body h2 {
-  font-size: font-size 48px;
+  font-size: 24px;
 }
 body h3 {
-  font-size: font-size 32px;
+  font-size: 32px;
 }
 body p {
-  font-size: font-size 12px;
+  font-size: 24px;
 }
 body header:nth-child(-n+3) {
   display: flex;
@@ -33,7 +34,16 @@ body header:nth-child(-n+3) button {
   height: 100px;
   width: 20%;
 }
-body header:nth-child(-n+3) button #serch-input, body header:nth-child(-n+3) button select#select-categories {
+body header:nth-child(-n+3) button #serch-input {
+  width: 98%;
+  text-align: start;
+  background: none;
+  font-family: inherit;
+  font-size: 24px;
+  border: none;
+  border-bottom: solid;
+}
+body header:nth-child(-n+3) button select#select-categories {
   width: 98%;
   text-align: start;
   background: none;
@@ -54,19 +64,51 @@ body aside {
   right: 0;
   width: 50px;
   height: 50px;
-  background-color: gray;
+  background-color: #90EE91;
+}
+body aside nav#header-section {
+  z-index: 5;
+  float: right;
+  background-color: bisque;
+  height: 50px;
+  width: 50px;
+}
+body aside nav#header-section p#nav-icon {
+  margin: 0;
+  text-align: center;
+  padding-top: 5px;
 }
 body aside section {
   display: none;
 }
-
-main {
-  text-align: center;
-  vertical-align: middle;
-  font-family: "Consolas";
+body aside section #p-array {
+  border-bottom: solid;
+  margin: 5vW;
 }
-main p {
-  font-size: font-size 49px;
+body aside #add-Own-Syssla {
+  width: 200px;
+  height: 50px;
+  border-radius: 40px;
+  display: none;
+}
+body main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70vh;
+}
+body main p {
+  margin: 0;
+  padding-top: 5px;
+}
+body main #main-add {
+  border-radius: 40px;
+  height: 30px;
+  float: right;
+}
+body main section#show-text {
+  margin: 0 60px 0px 60px;
 }
 
 /*# sourceMappingURL=main.css.map */
