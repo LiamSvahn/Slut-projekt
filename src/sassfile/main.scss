@@ -5,15 +5,80 @@
     text-align: start;
     background: none;
     font-family: inherit;
-    font-size: 24px;
+    font-size: $H2FontSize;
     border: none;
     border-bottom: solid;
 }
 
+
+@media only screen and (max-width: 600px) {
+    body {
+
+        h1{
+            font-size: $H1FontSizePhone !important;
+        }
+        h2{
+            font-size: $H2FontSizePhone !important;
+        }
+        h3{
+            font-size: $H3FontSizePhone !important;
+        }
+        p{
+            font-size: $pFontSizebodyPhone !important;
+        }
+        header{
+            position: relative;
+            display: block !important;
+            height: 110px !important;
+            #random-btn{
+                margin: 0px 0px 0px 20px;
+                text-align: left;
+                width: 50vw;
+                float: left;
+                background-color: $b;
+            }
+            button{
+                width: auto;
+            }
+            button:nth-of-type(odd){
+                position: absolute;
+                width: 30vw !important;
+                margin-top: 150px !important;
+            }
+            button#serch-button {
+                margin-left: 15vw;
+            }
+            button #serch-input {
+                font-size: 5vw !important;
+            
+            }
+            button select#select-categories{
+                font-size: 5vw !important;
+            }
+        }
+        aside nav#header-section p#nav-icon {
+            padding-top: 10px !important;
+        }
+        main{
+            height: 85vh !important;
+        }
+        
+
+
+
+
+    }
+}
+
+
+
 body{
     margin: 0;
-
+    overflow-y: hidden;
     font-family: $fontBody;
+    ::-webkit-scrollbar {
+        width: 0px;
+      }
     h1{
         font-size: $H1FontSize;
         margin: 0;
@@ -70,11 +135,12 @@ body{
         width: 50px;
         height: 50px;
         background-color: $d;
+        overflow-y: scroll;
 
         nav#header-section{
             z-index: 5;
             float: right;
-            background-color: bisque;
+            background-color: $d;
             height: 50px;
             width: 50px;
             p#nav-icon{
@@ -113,6 +179,7 @@ body{
             border-radius: 40px;
             height: 30px;
             float: right;
+            display: none;
         }
         section#show-text{
             margin: 0 60px 0px 60px;

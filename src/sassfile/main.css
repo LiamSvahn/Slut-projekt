@@ -1,17 +1,70 @@
+@media only screen and (max-width: 600px) {
+  body h1 {
+    font-size: 10vw !important;
+  }
+  body h2 {
+    font-size: 5vw !important;
+  }
+  body h3 {
+    font-size: 1vw !important;
+  }
+  body p {
+    font-size: 16px !important;
+  }
+  body header {
+    position: relative;
+    display: block !important;
+    height: 110px !important;
+  }
+  body header #random-btn {
+    margin: 0px 0px 0px 20px;
+    text-align: left;
+    width: 50vw;
+    float: left;
+    background-color: #E5F6DF;
+  }
+  body header button {
+    width: auto;
+  }
+  body header button:nth-of-type(odd) {
+    position: absolute;
+    width: 30vw !important;
+    margin-top: 150px !important;
+  }
+  body header button#serch-button {
+    margin-left: 15vw;
+  }
+  body header button #serch-input {
+    font-size: 5vw !important;
+  }
+  body header button select#select-categories {
+    font-size: 5vw !important;
+  }
+  body aside nav#header-section p#nav-icon {
+    padding-top: 10px !important;
+  }
+  body main {
+    height: 85vh !important;
+  }
+}
 body {
   margin: 0;
+  overflow-y: hidden;
   font-family: "Consolas";
   position: relative;
   background-color: #F5F5F5;
   height: 100%;
   width: 100%;
 }
+body ::-webkit-scrollbar {
+  width: 0px;
+}
 body h1 {
   font-size: 10vw;
   margin: 0;
 }
 body h2 {
-  font-size: 24px;
+  font-size: 2vw;
 }
 body h3 {
   font-size: 32px;
@@ -39,7 +92,7 @@ body header:nth-child(-n+3) button #serch-input {
   text-align: start;
   background: none;
   font-family: inherit;
-  font-size: 24px;
+  font-size: 2vw;
   border: none;
   border-bottom: solid;
 }
@@ -48,7 +101,7 @@ body header:nth-child(-n+3) button select#select-categories {
   text-align: start;
   background: none;
   font-family: inherit;
-  font-size: 24px;
+  font-size: 2vw;
   border: none;
   border-bottom: solid;
 }
@@ -65,11 +118,12 @@ body aside {
   width: 50px;
   height: 50px;
   background-color: #90EE91;
+  overflow-y: scroll;
 }
 body aside nav#header-section {
   z-index: 5;
   float: right;
-  background-color: bisque;
+  background-color: #90EE91;
   height: 50px;
   width: 50px;
 }
@@ -106,6 +160,7 @@ body main #main-add {
   border-radius: 40px;
   height: 30px;
   float: right;
+  display: none;
 }
 body main section#show-text {
   margin: 0 60px 0px 60px;
