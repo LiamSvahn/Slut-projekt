@@ -34,6 +34,8 @@ const getNav = document.querySelector('#header-section') as HTMLSelectElement;
 
 const getIcon = document.querySelector('#nav-icon') as HTMLSelectElement;
 
+const getaddbutton = document.querySelector('#main-add') as HTMLElement;
+
 
 const arraysysslor: string[] = [];
 
@@ -90,6 +92,7 @@ async function serchFunc(){
             activity:string;
         } = await newUrl.json();
 
+        console.log(costomUrl)
         randSysla.textContent = serchData['activity'];
     } catch (error) {
         console.log(error)
@@ -117,6 +120,16 @@ function asideFunction(){
 }getNav.addEventListener('click', asideFunction)
 
 
+getMainSection.addEventListener("mouseover", mousein);
+getMainSection.addEventListener("mouseout", mouseout);
+
+function mousein(){
+    getaddbutton.style.display = "block";
+}
+function mouseout(){
+    getaddbutton.style.display = "none";
+}
+
 getMainButton.addEventListener('click', () => {
     arraysysslor.push(randSysla.innerText)
     console.log(arraysysslor)
@@ -131,3 +144,4 @@ getMainButton.addEventListener('click', () => {
 })
 
 
+//

@@ -24,6 +24,7 @@ const getAside = document.querySelector('aside');
 const getSection = document.querySelector('#hide-Section');
 const getNav = document.querySelector('#header-section');
 const getIcon = document.querySelector('#nav-icon');
+const getaddbutton = document.querySelector('#main-add');
 const arraysysslor = [];
 function randSyssla() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -68,6 +69,7 @@ function serchFunc() {
             const costomUrl = serchUrl + getSerch.value;
             const newUrl = yield fetch(costomUrl);
             const serchData = yield newUrl.json();
+            console.log(costomUrl);
             randSysla.textContent = serchData['activity'];
         }
         catch (error) {
@@ -95,6 +97,14 @@ function asideFunction() {
     }
 }
 getNav.addEventListener('click', asideFunction);
+getMainSection.addEventListener("mouseover", mousein);
+getMainSection.addEventListener("mouseout", mouseout);
+function mousein() {
+    getaddbutton.style.display = "block";
+}
+function mouseout() {
+    getaddbutton.style.display = "none";
+}
 getMainButton.addEventListener('click', () => {
     arraysysslor.push(randSysla.innerText);
     console.log(arraysysslor);
